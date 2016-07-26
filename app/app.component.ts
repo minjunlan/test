@@ -8,8 +8,20 @@ class QRLogin {
     code:number;
     uuid:string;
 
-    constructor() {}
+    constructor(str:string) {
+        this.handleStr(str);
+    }
+
+    private handleStr(str:string){
+        let arr1: string[];
+        let arr2: string[];
+        arr1 = str.split(";");
+        this.code = Number(arr1[0].split("=")[1]);
+        this.uuid = arr1[1].split("=")[1]
+    }
 }
+
+let login:QRLogin;
 
 @Component({
     selector: 'my-app',
@@ -28,10 +40,12 @@ export class AppComponent implements OnInit {
 
     addUser(e:any) {
         this.weixinService.getLoginUuid()
-                          .then(res => eval("'"+res.text()+"'"));
+                          .then(res => {
+                              login = new QRLogin(res.text());
+                          });
         
     }
     addUser2(e:any) {
-        console.log(QRLogin)
+        console.log(login)
     }
  }
