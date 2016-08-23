@@ -17,7 +17,8 @@ app.on('activate', () => {
 });
 
 function createWindow() {
-    win = new BrowserWindow({width:800,height:600});
+    const obj = electron.screen.getPrimaryDisplay().workAreaSize
+    win = new BrowserWindow({width:obj.width,height:obj.height});
     win.loadURL(`${__dirname}/index.html`);
     win.on('closed', () => {
         win = null;

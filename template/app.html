@@ -2,11 +2,95 @@
     <div class="row">
         <div class="col-xs-3">
             <button (click)="addUser($event)">添加</button>
-            <button (click)="addUser2($event)">添加2</button>
+            <button (click)="closeLoginBox($event)">关闭</button>
+            <div class="accountlist">
+                <div *ngFor="let item of accounts" (click)="listContent(item)" class="chat_item">
+                    <div class="ext">
+                        <p class="attr"></p>
+                    </div>
+                    <div class="avatar">
+                        <img src="{{item.userAvatar}}" alt="" >
+                    </div>
+                    <div class="info">
+                        <h3 class="nickname"><span class="nickname_text">{{item.nickname}}</span></h3>
+                    </div>    
+                </div>
+            </div>
         </div>
-        <div class="col-xs-9">我是右边</div>
+        <div class="col-xs-9 row" >
+            <div class="col-xs-3">
+                <div class="contact_list">
+                    <div *ngFor="let item of slectMembers" (click)="selectOne(item)" class="contact_item"> 
+                        <div class="ext">
+                            <p class="attr"></p>
+                        </div>
+                        <div class="avatar">
+                            <img src="{{item.HeadImgUrl}}" alt="">
+                        </div>
+                        <div class="info">
+                            <h4>{{item.NickName}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-9">
+                <div id="chatArea"  class="box chat" [style.height]="chatHeight+'px'">
+                    <!--BEGIN HD-->
+                    <div class="box_hd">
+                        <div id="chatRoomMembersWrap"></div>
+                        <div class="title_wrap">
+                            <div class="title poi" >
+                                <a class="title_name" *ngIf="slectMember" >{{slectMember.NickName}}</a>
+                                <i class="web_wechat_down_icon" ></i>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--END HD-->
+                    <!--BEGIN BD-->
+                    <div class="box_bd chat_bd scrollbar-dynamic" id="chatscroll" style="position: absolute;">
+                        <div style="margin-bottom: 0px; margin-right: 0px; " [style.height]="(chatHeight-229)+'px'">
+                            <div *ngFor="let msg of chatContent" >
+                                <div class="clearfix">
+                                    <wx-message [message]="msg"></wx-message>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END BD-->
+                    <!--BEGIN FT-->
+                    <div class="box_ft">
+                        <div class="toolbar" id="tool_bar">
+                            <a class="web_wechat_face" href="javascript:;" title="表情" (click)="showemjob = !showemjob"></a>
+                            <a class="web_wechat_screencut" href="javascript:;" title="截屏"></a>
+                            <a class="web_wechat_pic" title="图片和文件"></a>
+                            <div id="mmpop_emoji_panel" class="mmpop slide-top" tabindex="-1" style="top: -272px; left: 15px;"  *ngIf="showemjob">
+                                <div class="expression">
+                                    <ul class="exp_hd">
+                                        <li class="exp_hd_item active" [ngClass]="{'active': index == 1}" (click)="index = 1;">
+                                            <a href="javascript:;">QQ表情</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <pre id="editArea" class="flex" contenteditable="true" (click)="showemjob = false;" (keydown)="sendMessage($event)"></pre>
+                            <span class="caret_pos_helper" id="caretPosHelper"></span>
+                        </div>
+
+                        <div class="action">
+                            <span  class="desc ng-scope">按下Ctrl+Enter换行</span>
+                            <a class="btn btn_send" href="javascript:;" (click)="sendMessage($event)">发送</a>
+                        </div>
+                    </div>
+                    <!--END FT-->
+                    </div>
+            </div>
+        </div>
     </div>
 </div>
+<wx-login-box *ngIf="showLoginBox" [accounts]="accounts" (onCloseLoginBox)="onCloseLoginBox($event)"></wx-login-box>
 
 
 

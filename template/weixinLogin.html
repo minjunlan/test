@@ -1,0 +1,12 @@
+<div class="login_box" >
+    <div class="qrcode" [ngClass]="{hide: isScan}">
+        <img class="img" src="{{loginimg}}">
+        <p class="sub_title">{{scanInfo}}</p>
+    </div>
+    <div class="avatar" [ngClass]="{show: isScan}">
+        <img class="img" mm-src="" alt="" src="{{userAvatar}}">
+        <h4 class="sub_title">扫描成功</h4>
+        <p class="tips">请在手机上点击确认以登录</p>
+        <a href="javascript:;" (click)="isScan = false;" class="action">返回二维码登录</a>
+    </div>
+</div>

@@ -1,0 +1,1666 @@
+ul,ol{
+    list-style: none;
+}
+.chat_item {
+    overflow: hidden;
+    padding: 12px 18px 11px;
+    border-bottom: 1px solid #292C33;
+    cursor: pointer;
+    position: relative;
+}
+.chat_item .avatar {
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+.chat_item .avatar img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.chat_item .info {
+    overflow: hidden;
+}
+.chat_item .info .nickname {
+    font-weight: 400;
+    font-size: 13px;
+    color: #292C33;
+    line-height: 20px;
+}
+.chat_item .info .nickname_text {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.chat_item .ext {
+    float: right;
+    color: #6b6f7c;
+    font-size: 13px;
+    text-align: right;
+}
+.chat_item .ext .attr {
+    height: 19px;
+    line-height: 1.5;
+}
+.contact_list{
+    height: 100%;
+    overflow-y: scroll;
+}
+.contact_list .contact_item {
+    overflow: hidden;
+    padding: 10px 18px 9px;
+    border-bottom: 1px solid #292C33;
+    cursor: pointer;
+}
+.contact_list .avatar {
+    float: left;
+    margin-right: 10px;
+}
+.contact_list .avatar img {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.contact_list .info {
+    overflow: hidden;
+    line-height: 30px;
+}
+.contact_list .info .nickname {
+    color: #FFF;
+    font-weight: 400;
+    font-size: 13px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.contact_list .ext {
+    float: right;
+    color: #6b6f7c;
+    font-size: 13px;
+    text-align: right;
+}
+
+.box_hd {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    line-height: 30px;
+}
+.box_hd .title_wrap {
+    position: relative;
+    padding: 10px 0;
+    margin: 0 19px;
+    border-bottom: 1px solid #d6d6d6;
+    background-color: #EEE;
+    z-index: 1024;
+}
+.box_hd .title.poi {
+    cursor: pointer;
+}
+.box_hd .title {
+    font-weight: 400;
+    height: 25px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.box_hd .title .title_name {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-decoration: none;
+    color: #000;
+    font-weight: 400;
+}
+.web_wechat_down_icon {
+    background: url(./public/images/sprite2e4e03.png) 0 -795px;
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.web_wechat_face {
+    background: url(./public/images/sprite2e4e03.png) 0 -805px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.web_wechat_screencut {
+    background: url(./public/images/sprite2e4e03.png) 0 -1916px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.web_wechat_pic {
+    background: url(./public/images/sprite2e4e03.png) 0 -1638px;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.box {
+    position: relative;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.chat .box_bd {
+    top: 54px;
+    bottom: 180px;
+	width: 100%;
+    padding: 0 19px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.chat .box_ft {
+    height: 180px;
+    margin-right: 19px;
+    border-top: 1px solid #d6d6d6;
+}
+.box_ft {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.chat .box_ft .toolbar {
+    height: 30px;
+    padding: 5px 17px;
+}
+.chat .box_ft .content .flex {
+    height: 6em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 20px;
+    outline: 0;
+    border: 0;
+    font-size: 14px;
+}
+pre {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    white-space: pre-wrap;
+    word-break: initial;
+}
+.chat .box_ft .caret_pos_helper {
+    position: absolute;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    white-space: pre;
+}
+.chat .box_ft .action {
+    text-align: right;
+    margin-top: 5px;
+}
+.chat .box_ft .desc {
+    color: #888;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 7px;
+}
+.btn {
+    text-decoration: none;
+}
+.btn_send {
+    background-color: #fff;
+    color: #222;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.btn {
+    display: inline-block;
+    border: 1px solid #c1c1c1;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 3px 20px;
+    font-size: 14px;
+}
+
+
+/*biao qing*/
+
+.mmpop {
+    position: absolute;
+    background-color: #fff;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    outline: 0;
+}
+.slide-top {
+    -webkit-transition: all 0 cubic-bezier(0.25,.46,.45,.94);
+    transition: all 0 cubic-bezier(0.25,.46,.45,.94);
+}
+.expression {
+    border: 1px solid #dedede;
+}
+.exp_hd {
+    padding: 8px 20px 0;
+    overflow: hidden;
+    background-color: #F2F2F2;
+}
+.exp_hd_item {
+    float: left;
+}
+.exp_hd_item a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 20px;
+    font-size: 14px;
+}
+.exp_hd_item.active {
+    background-color: #fff;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -webkit-border-top-right-radius: 4px;
+}
+
+.exp_bd {
+    overflow: auto;
+    background-color: #fff;
+    height: 232px;
+}
+.scroll-wrapper {
+    overflow: hidden!important;
+    padding: 0!important;
+    position: relative;
+}
+.scroll-wrapper>.scroll-content {
+    border: 0!important;
+    box-sizing: content-box!important;
+    height: auto;
+    left: 0;
+    margin: 0;
+    max-height: none!important;
+    max-width: none!important;
+    overflow: scroll!important;
+    padding: 0;
+    position: relative!important;
+    top: 0;
+    width: auto!important;
+}
+.exp_bd {
+    overflow: auto;
+    background-color: #fff;
+    height: 232px;
+}
+.exp_cont {
+    display: none;
+    overflow: hidden;
+    margin: 15px 20px;
+    padding-right: 20px\0;
+}
+.qq_face {
+    overflow: hidden;
+    width: 435px;
+    height: 202px;
+    margin-right: -1px;
+}
+.qq_face a {
+    float: left;
+    width: 28px;
+    height: 28px;
+    font-size: 0;
+    text-indent: -999em;
+    border-bottom: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    cursor: pointer;
+    background: url(./public/images/qqfacePanel2e4e03.png) no-repeat;
+}
+.qq_face .qqface0 {
+    background-position: 0 0;
+}
+.exp_cont.active {
+    display: block;
+}
+
+
+.qq_face .qqface0 {
+	background-position: 0 0
+}
+
+.qq_face .qqface1 {
+	background-position: -29px 0
+}
+
+.qq_face .qqface2 {
+	background-position: -58px 0
+}
+
+.qq_face .qqface3 {
+	background-position: -87px 0
+}
+
+.qq_face .qqface4 {
+	background-position: -116px 0
+}
+
+.qq_face .qqface5 {
+	background-position: -145px 0
+}
+
+.qq_face .qqface6 {
+	background-position: -174px 0
+}
+
+.qq_face .qqface7 {
+	background-position: -203px 0
+}
+
+.qq_face .qqface8 {
+	background-position: -232px 0
+}
+
+.qq_face .qqface9 {
+	background-position: -261px 0
+}
+
+.qq_face .qqface10 {
+	background-position: -290px 0
+}
+
+.qq_face .qqface11 {
+	background-position: -319px 0
+}
+
+.qq_face .qqface12 {
+	background-position: -348px 0
+}
+
+.qq_face .qqface13 {
+	background-position: -377px 0
+}
+
+.qq_face .qqface14 {
+	background-position: -406px 0
+}
+
+.qq_face .qqface15 {
+	background-position: 0 -29px
+}
+
+.qq_face .qqface16 {
+	background-position: -29px -29px
+}
+
+.qq_face .qqface17 {
+	background-position: -58px -29px
+}
+
+.qq_face .qqface18 {
+	background-position: -87px -29px
+}
+
+.qq_face .qqface19 {
+	background-position: -116px -29px
+}
+
+.qq_face .qqface20 {
+	background-position: -145px -29px
+}
+
+.qq_face .qqface21 {
+	background-position: -174px -29px
+}
+
+.qq_face .qqface22 {
+	background-position: -203px -29px
+}
+
+.qq_face .qqface23 {
+	background-position: -232px -29px
+}
+
+.qq_face .qqface24 {
+	background-position: -261px -29px
+}
+
+.qq_face .qqface25 {
+	background-position: -290px -29px
+}
+
+.qq_face .qqface26 {
+	background-position: -319px -29px
+}
+
+.qq_face .qqface27 {
+	background-position: -348px -29px
+}
+
+.qq_face .qqface28 {
+	background-position: -377px -29px
+}
+
+.qq_face .qqface29 {
+	background-position: -406px -29px
+}
+
+.qq_face .qqface30 {
+	background-position: 0 -58px
+}
+
+.qq_face .qqface31 {
+	background-position: -29px -58px
+}
+
+.qq_face .qqface32 {
+	background-position: -58px -58px
+}
+
+.qq_face .qqface33 {
+	background-position: -87px -58px
+}
+
+.qq_face .qqface34 {
+	background-position: -116px -58px
+}
+
+.qq_face .qqface35 {
+	background-position: -145px -58px
+}
+
+.qq_face .qqface36 {
+	background-position: -174px -58px
+}
+
+.qq_face .qqface37 {
+	background-position: -203px -58px
+}
+
+.qq_face .qqface38 {
+	background-position: -232px -58px
+}
+
+.qq_face .qqface39 {
+	background-position: -261px -58px
+}
+
+.qq_face .qqface40 {
+	background-position: -290px -58px
+}
+
+.qq_face .qqface41 {
+	background-position: -319px -58px
+}
+
+.qq_face .qqface42 {
+	background-position: -348px -58px
+}
+
+.qq_face .qqface43 {
+	background-position: -377px -58px
+}
+
+.qq_face .qqface44 {
+	background-position: -406px -58px
+}
+
+.qq_face .qqface45 {
+	background-position: 0 -87px
+}
+
+.qq_face .qqface46 {
+	background-position: -29px -87px
+}
+
+.qq_face .qqface47 {
+	background-position: -58px -87px
+}
+
+.qq_face .qqface48 {
+	background-position: -87px -87px
+}
+
+.qq_face .qqface49 {
+	background-position: -116px -87px
+}
+
+.qq_face .qqface50 {
+	background-position: -145px -87px
+}
+
+.qq_face .qqface51 {
+	background-position: -174px -87px
+}
+
+.qq_face .qqface52 {
+	background-position: -203px -87px
+}
+
+.qq_face .qqface53 {
+	background-position: -232px -87px
+}
+
+.qq_face .qqface54 {
+	background-position: -261px -87px
+}
+
+.qq_face .qqface55 {
+	background-position: -290px -87px
+}
+
+.qq_face .qqface56 {
+	background-position: -319px -87px
+}
+
+.qq_face .qqface57 {
+	background-position: -348px -87px
+}
+
+.qq_face .qqface58 {
+	background-position: -377px -87px
+}
+
+.qq_face .qqface59 {
+	background-position: -406px -87px
+}
+
+.qq_face .qqface60 {
+	background-position: 0 -116px
+}
+
+.qq_face .qqface61 {
+	background-position: -29px -116px
+}
+
+.qq_face .qqface62 {
+	background-position: -58px -116px
+}
+
+.qq_face .qqface63 {
+	background-position: -87px -116px
+}
+
+.qq_face .qqface64 {
+	background-position: -116px -116px
+}
+
+.qq_face .qqface65 {
+	background-position: -145px -116px
+}
+
+.qq_face .qqface66 {
+	background-position: -174px -116px
+}
+
+.qq_face .qqface67 {
+	background-position: -203px -116px
+}
+
+.qq_face .qqface68 {
+	background-position: -232px -116px
+}
+
+.qq_face .qqface69 {
+	background-position: -261px -116px
+}
+
+.qq_face .qqface70 {
+	background-position: -290px -116px
+}
+
+.qq_face .qqface71 {
+	background-position: -319px -116px
+}
+
+.qq_face .qqface72 {
+	background-position: -348px -116px
+}
+
+.qq_face .qqface73 {
+	background-position: -377px -116px
+}
+
+.qq_face .qqface74 {
+	background-position: -406px -116px
+}
+
+.qq_face .qqface75 {
+	background-position: 0 -145px
+}
+
+.qq_face .qqface76 {
+	background-position: -29px -145px
+}
+
+.qq_face .qqface77 {
+	background-position: -58px -145px
+}
+
+.qq_face .qqface78 {
+	background-position: -87px -145px
+}
+
+.qq_face .qqface79 {
+	background-position: -116px -145px
+}
+
+.qq_face .qqface80 {
+	background-position: -145px -145px
+}
+
+.qq_face .qqface81 {
+	background-position: -174px -145px
+}
+
+.qq_face .qqface82 {
+	background-position: -203px -145px
+}
+
+.qq_face .qqface83 {
+	background-position: -232px -145px
+}
+
+.qq_face .qqface84 {
+	background-position: -261px -145px
+}
+
+.qq_face .qqface85 {
+	background-position: -290px -145px
+}
+
+.qq_face .qqface86 {
+	background-position: -319px -145px
+}
+
+.qq_face .qqface87 {
+	background-position: -348px -145px
+}
+
+.qq_face .qqface88 {
+	background-position: -377px -145px
+}
+
+.qq_face .qqface89 {
+	background-position: -406px -145px
+}
+
+.qq_face .qqface90 {
+	background-position: 0 -174px
+}
+
+.qq_face .qqface91 {
+	background-position: -29px -174px
+}
+
+.qq_face .qqface92 {
+	background-position: -58px -174px
+}
+
+.qq_face .qqface93 {
+	background-position: -87px -174px
+}
+
+.qq_face .qqface94 {
+	background-position: -116px -174px
+}
+
+.qq_face .qqface95 {
+	background-position: -145px -174px
+}
+
+.qq_face .qqface96 {
+	background-position: -174px -174px
+}
+
+.qq_face .qqface97 {
+	background-position: -203px -174px
+}
+
+.qq_face .qqface98 {
+	background-position: -232px -174px
+}
+
+.qq_face .qqface99 {
+	background-position: -261px -174px
+}
+
+.qq_face .qqface100 {
+	background-position: -290px -174px
+}
+
+.qq_face .qqface101 {
+	background-position: -319px -174px
+}
+
+.qq_face .qqface102 {
+	background-position: -348px -174px
+}
+
+.qq_face .qqface103 {
+	background-position: -377px -174px
+}
+
+.qq_face .qqface104 {
+	background-position: -406px -174px
+}
+
+.emoji_face {
+    overflow: hidden;
+    width: 435px;
+    height: 360px;
+    margin-right: -1px;
+}
+.emoji_face a {
+    float: left;
+    width: 28px;
+    height: 28px;
+    font-size: 0;
+    text-indent: -999em;
+    border-bottom: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    cursor: pointer;
+    background: url(./public/imagesemojiPanel2e4e03.png) no-repeat;
+}
+.emoji_face .emoji0 {
+	background-position: 0 1px
+}
+
+.emoji_face .emoji1 {
+	background-position: -29px 1px
+}
+
+.emoji_face .emoji2 {
+	background-position: -58px 1px
+}
+
+.emoji_face .emoji3 {
+	background-position: -87px 1px
+}
+
+.emoji_face .emoji4 {
+	background-position: -116px 1px
+}
+
+.emoji_face .emoji5 {
+	background-position: -145px 1px
+}
+
+.emoji_face .emoji6 {
+	background-position: -174px 1px
+}
+
+.emoji_face .emoji7 {
+	background-position: -203px 1px
+}
+
+.emoji_face .emoji8 {
+	background-position: -232px 1px
+}
+
+.emoji_face .emoji9 {
+	background-position: -261px 1px
+}
+
+.emoji_face .emoji10 {
+	background-position: -290px 1px
+}
+
+.emoji_face .emoji11 {
+	background-position: -319px 1px
+}
+
+.emoji_face .emoji12 {
+	background-position: -348px 1px
+}
+
+.emoji_face .emoji13 {
+	background-position: -377px 1px
+}
+
+.emoji_face .emoji14 {
+	background-position: -406px 1px
+}
+
+.emoji_face .emoji15 {
+	background-position: 0 -28px
+}
+
+.emoji_face .emoji16 {
+	background-position: -29px -28px
+}
+
+.emoji_face .emoji17 {
+	background-position: -58px -28px
+}
+
+.emoji_face .emoji18 {
+	background-position: -87px -28px
+}
+
+.emoji_face .emoji19 {
+	background-position: -116px -28px
+}
+
+.emoji_face .emoji20 {
+	background-position: -145px -28px
+}
+
+.emoji_face .emoji21 {
+	background-position: -174px -28px
+}
+
+.emoji_face .emoji22 {
+	background-position: -203px -28px
+}
+
+.emoji_face .emoji23 {
+	background-position: -232px -28px
+}
+
+.emoji_face .emoji24 {
+	background-position: -261px -28px
+}
+
+.emoji_face .emoji25 {
+	background-position: -290px -28px
+}
+
+.emoji_face .emoji26 {
+	background-position: -319px -28px
+}
+
+.emoji_face .emoji27 {
+	background-position: -348px -28px
+}
+
+.emoji_face .emoji28 {
+	background-position: -377px -28px
+}
+
+.emoji_face .emoji29 {
+	background-position: -406px -28px
+}
+
+.emoji_face .emoji30 {
+	background-position: 0 -57px
+}
+
+.emoji_face .emoji31 {
+	background-position: -29px -57px
+}
+
+.emoji_face .emoji32 {
+	background-position: -58px -57px
+}
+
+.emoji_face .emoji33 {
+	background-position: -87px -57px
+}
+
+.emoji_face .emoji34 {
+	background-position: -116px -57px
+}
+
+.emoji_face .emoji35 {
+	background-position: -145px -57px
+}
+
+.emoji_face .emoji36 {
+	background-position: -174px -57px
+}
+
+.emoji_face .emoji37 {
+	background-position: -203px -57px
+}
+
+.emoji_face .emoji38 {
+	background-position: -232px -57px
+}
+
+.emoji_face .emoji39 {
+	background-position: -261px -57px
+}
+
+.emoji_face .emoji40 {
+	background-position: -290px -57px
+}
+
+.emoji_face .emoji41 {
+	background-position: -319px -57px
+}
+
+.emoji_face .emoji42 {
+	background-position: -348px -57px
+}
+
+.emoji_face .emoji43 {
+	background-position: -377px -57px
+}
+
+.emoji_face .emoji44 {
+	background-position: -406px -57px
+}
+
+.emoji_face .emoji45 {
+	background-position: 0 -86px
+}
+
+.emoji_face .emoji46 {
+	background-position: -29px -86px
+}
+
+.emoji_face .emoji47 {
+	background-position: -58px -86px
+}
+
+.emoji_face .emoji48 {
+	background-position: -87px -86px
+}
+
+.emoji_face .emoji49 {
+	background-position: -116px -86px
+}
+
+.emoji_face .emoji50 {
+	background-position: -145px -86px
+}
+
+.emoji_face .emoji51 {
+	background-position: -174px -86px
+}
+
+.emoji_face .emoji52 {
+	background-position: -203px -86px
+}
+
+.emoji_face .emoji53 {
+	background-position: -232px -86px
+}
+
+.emoji_face .emoji54 {
+	background-position: -261px -86px
+}
+
+.emoji_face .emoji55 {
+	background-position: -290px -86px
+}
+
+.emoji_face .emoji56 {
+	background-position: -319px -86px
+}
+
+.emoji_face .emoji57 {
+	background-position: -348px -86px
+}
+
+.emoji_face .emoji58 {
+	background-position: -377px -86px
+}
+
+.emoji_face .emoji59 {
+	background-position: -406px -86px
+}
+
+.emoji_face .emoji60 {
+	background-position: 0 -115px
+}
+
+.emoji_face .emoji61 {
+	background-position: -29px -115px
+}
+
+.emoji_face .emoji62 {
+	background-position: -58px -115px
+}
+
+.emoji_face .emoji63 {
+	background-position: -87px -115px
+}
+
+.emoji_face .emoji64 {
+	background-position: -116px -115px
+}
+
+.emoji_face .emoji65 {
+	background-position: -145px -115px
+}
+
+.emoji_face .emoji66 {
+	background-position: -174px -115px
+}
+
+.emoji_face .emoji67 {
+	background-position: -203px -115px
+}
+
+.emoji_face .emoji68 {
+	background-position: -232px -115px
+}
+
+.emoji_face .emoji69 {
+	background-position: -261px -115px
+}
+
+.emoji_face .emoji70 {
+	background-position: -290px -115px
+}
+
+.emoji_face .emoji71 {
+	background-position: -319px -115px
+}
+
+.emoji_face .emoji72 {
+	background-position: -348px -115px
+}
+
+.emoji_face .emoji73 {
+	background-position: -377px -115px
+}
+
+.emoji_face .emoji74 {
+	background-position: -406px -115px
+}
+
+.emoji_face .emoji75 {
+	background-position: 0 -144px
+}
+
+.emoji_face .emoji76 {
+	background-position: -29px -144px
+}
+
+.emoji_face .emoji77 {
+	background-position: -58px -144px
+}
+
+.emoji_face .emoji78 {
+	background-position: -87px -144px
+}
+
+.emoji_face .emoji79 {
+	background-position: -116px -144px
+}
+
+.emoji_face .emoji80 {
+	background-position: -145px -144px
+}
+
+.emoji_face .emoji81 {
+	background-position: -174px -144px
+}
+
+.emoji_face .emoji82 {
+	background-position: -203px -144px
+}
+
+.emoji_face .emoji83 {
+	background-position: -232px -144px
+}
+
+.emoji_face .emoji84 {
+	background-position: -261px -144px
+}
+
+.emoji_face .emoji85 {
+	background-position: -290px -144px
+}
+
+.emoji_face .emoji86 {
+	background-position: -319px -144px
+}
+
+.emoji_face .emoji87 {
+	background-position: -348px -144px
+}
+
+.emoji_face .emoji88 {
+	background-position: -377px -144px
+}
+
+.emoji_face .emoji89 {
+	background-position: -406px -144px
+}
+
+.emoji_face .emoji90 {
+	background-position: 0 -173px
+}
+
+.emoji_face .emoji91 {
+	background-position: -29px -173px
+}
+
+.emoji_face .emoji92 {
+	background-position: -58px -173px
+}
+
+.emoji_face .emoji93 {
+	background-position: -87px -173px
+}
+
+.emoji_face .emoji94 {
+	background-position: -116px -173px
+}
+
+.emoji_face .emoji95 {
+	background-position: -145px -173px
+}
+
+.emoji_face .emoji96 {
+	background-position: -174px -173px
+}
+
+.emoji_face .emoji97 {
+	background-position: -203px -173px
+}
+
+.emoji_face .emoji98 {
+	background-position: -232px -173px
+}
+
+.emoji_face .emoji99 {
+	background-position: -261px -173px
+}
+
+.emoji_face .emoji100 {
+	background-position: -290px -173px
+}
+
+.emoji_face .emoji101 {
+	background-position: -319px -173px
+}
+
+.emoji_face .emoji102 {
+	background-position: -348px -173px
+}
+
+.emoji_face .emoji103 {
+	background-position: -377px -173px
+}
+
+.emoji_face .emoji104 {
+	background-position: -406px -173px
+}
+
+.emoji_face .emoji105 {
+	background-position: 0 -202px
+}
+
+.emoji_face .emoji106 {
+	background-position: -29px -202px
+}
+
+.emoji_face .emoji107 {
+	background-position: -58px -202px
+}
+
+.emoji_face .emoji108 {
+	background-position: -87px -202px
+}
+
+.emoji_face .emoji109 {
+	background-position: -116px -202px
+}
+
+.emoji_face .emoji110 {
+	background-position: -145px -202px
+}
+
+.emoji_face .emoji111 {
+	background-position: -174px -202px
+}
+
+.emoji_face .emoji112 {
+	background-position: -203px -202px
+}
+
+.emoji_face .emoji113 {
+	background-position: -232px -202px
+}
+
+.emoji_face .emoji114 {
+	background-position: -261px -202px
+}
+
+.emoji_face .emoji115 {
+	background-position: -290px -202px
+}
+
+.emoji_face .emoji116 {
+	background-position: -319px -202px
+}
+
+.emoji_face .emoji117 {
+	background-position: -348px -202px
+}
+
+.emoji_face .emoji118 {
+	background-position: -377px -202px
+}
+
+.emoji_face .emoji119 {
+	background-position: -406px -202px
+}
+
+.emoji_face .emoji120 {
+	background-position: 0 -231px
+}
+
+.emoji_face .emoji121 {
+	background-position: -29px -231px
+}
+
+.emoji_face .emoji122 {
+	background-position: -58px -231px
+}
+
+.emoji_face .emoji123 {
+	background-position: -87px -231px
+}
+
+.emoji_face .emoji124 {
+	background-position: -116px -231px
+}
+
+.emoji_face .emoji125 {
+	background-position: -145px -231px
+}
+
+.emoji_face .emoji126 {
+	background-position: -174px -231px
+}
+
+.emoji_face .emoji127 {
+	background-position: -203px -231px
+}
+
+.emoji_face .emoji128 {
+	background-position: -232px -231px
+}
+
+.emoji_face .emoji129 {
+	background-position: -261px -231px
+}
+
+.emoji_face .emoji130 {
+	background-position: -290px -231px
+}
+
+.emoji_face .emoji131 {
+	background-position: -319px -231px
+}
+
+.emoji_face .emoji132 {
+	background-position: -348px -231px
+}
+
+.emoji_face .emoji133 {
+	background-position: -377px -231px
+}
+
+.emoji_face .emoji134 {
+	background-position: -406px -231px
+}
+
+.emoji_face .emoji135 {
+	background-position: 0 -260px
+}
+
+.emoji_face .emoji136 {
+	background-position: -29px -260px
+}
+
+.emoji_face .emoji137 {
+	background-position: -58px -260px
+}
+
+.emoji_face .emoji138 {
+	background-position: -87px -260px
+}
+
+.emoji_face .emoji139 {
+	background-position: -116px -260px
+}
+
+.emoji_face .emoji140 {
+	background-position: -145px -260px
+}
+
+.emoji_face .emoji141 {
+	background-position: -174px -260px
+}
+
+.emoji_face .emoji142 {
+	background-position: -203px -260px
+}
+
+.emoji_face .emoji143 {
+	background-position: -232px -260px
+}
+
+.emoji_face .emoji144 {
+	background-position: -261px -260px
+}
+
+.emoji_face .emoji145 {
+	background-position: -290px -260px
+}
+
+.emoji_face .emoji146 {
+	background-position: -319px -260px
+}
+
+.emoji_face .emoji147 {
+	background-position: -348px -260px
+}
+
+.emoji_face .emoji148 {
+	background-position: -377px -260px
+}
+
+.emoji_face .emoji149 {
+	background-position: -406px -260px
+}
+
+.emoji_face .emoji150 {
+	background-position: 0 -289px
+}
+
+.emoji_face .emoji151 {
+	background-position: -29px -289px
+}
+
+.emoji_face .emoji152 {
+	background-position: -58px -289px
+}
+
+.emoji_face .emoji153 {
+	background-position: -87px -289px
+}
+
+.emoji_face .emoji154 {
+	background-position: -116px -289px
+}
+
+.emoji_face .emoji155 {
+	background-position: -145px -289px
+}
+
+.emoji_face .emoji156 {
+	background-position: -174px -289px
+}
+
+.emoji_face .emoji157 {
+	background-position: -203px -289px
+}
+
+.emoji_face .emoji158 {
+	background-position: -232px -289px
+}
+
+.emoji_face .emoji159 {
+	background-position: -261px -289px
+}
+
+.emoji_face .emoji160 {
+	background-position: -290px -289px
+}
+
+.emoji_face .emoji161 {
+	background-position: -319px -289px
+}
+
+.emoji_face .emoji162 {
+	background-position: -348px -289px
+}
+
+.emoji_face .emoji163 {
+	background-position: -377px -289px
+}
+
+.emoji_face .emoji164 {
+	background-position: -406px -289px
+}
+
+.emoji_face .emoji165 {
+	background-position: 0 -318px
+}
+
+.emoji_face .emoji166 {
+	background-position: -29px -318px
+}
+
+.emoji_face .emoji167 {
+	background-position: -58px -318px
+}
+.tuzki_face {
+    overflow: hidden;
+    width: 440px;
+    height: 440px;
+    background: url(./public/images/tusiji_expression2e4e03.png) no-repeat;
+}
+.tuzki_face .face {
+    float: left;
+    width: 76px;
+    height: 76px;
+    font-size: 0;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    text-indent: -999em;
+    cursor: pointer;
+}
+.tuzki001:hover {
+	background: url(./public/images/icon_0012e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki002:hover {
+	background: url(./public/images/icon_0022e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki006:hover {
+	background: url(./public/images/icon_0062e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki007:hover {
+	background: url(./public/images/icon_0072e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki009:hover {
+	background: url(./public/images/icon_0092e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki010:hover {
+	background: url(./public/images/icon_0102e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki012:hover {
+	background: url(./public/images/icon_0122e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki013:hover {
+	background: url(./public/images/icon_0132e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki018:hover {
+	background: url(./public/images/icon_0182e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki019:hover {
+	background: url(./public/images/icon_0192e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki020:hover {
+	background: url(./public/images/icon_0202e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki021:hover {
+	background: url(./public/images/icon_0212e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki022:hover {
+	background: url(./public/images/icon_0222e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki023:hover {
+	background: url(./public/images/icon_0232e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki024:hover {
+	background: url(./public/images/icon_0242e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki027:hover {
+	background: url(./public/images/icon_0272e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki028:hover {
+	background: url(./public/images/icon_0282e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki029:hover {
+	background: url(./public/images/icon_0292e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki030:hover {
+	background: url(./public/images/icon_0302e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki033:hover {
+	background: url(./public/images/icon_0332e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki035:hover {
+	background: url(./public/images/icon_0352e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+.tuzki040:hover {
+	background: url(./public/images/icon_0402e4e03.gif) no-repeat 13px 16px #e9ecef
+}
+
+
+.message {
+    margin-bottom: 16px;
+    float: left;
+    width: 100%;
+}
+.message.me {
+    float: right;
+    text-align: right;
+    clear: right;
+}
+.message.me .content {
+    overflow: hidden;
+}
+.message_system {
+    text-align: center;
+    margin: 10px auto;
+    max-width: 50%;
+}
+message_system .content {
+    display: inline-block;
+    background-color: #dcdcdc;
+    font-size: 12px;
+    padding: 1px 18px;
+    color: #fff;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+.message .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    float: left;
+    cursor: pointer;
+}
+.message.me .avatar {
+    float: right;
+}
+.bubble {
+    max-width: 500px;
+    min-height: 1em;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin: 0 10px;
+}
+.bubble.bubble_primary {
+    background-color: #b2e281;
+}
+.bubble_cont {
+    word-wrap: break-word;
+    word-break: break-all;
+    min-height: 25px;
+}
+.bubble_cont .plain {
+    padding: 9px 13px;
+}
+.bubble_cont pre {
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    white-space: pre-wrap;
+    word-break: initial;
+    background-color: #b2e281;
+    border: none;
+}
+.bubble_cont img {
+    vertical-align: middle;
+}
+.bubble_cont .plain .ico_loading {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    margin-top: -7px;
+    margin-right: 13px;
+}
+
+.bubble:before, .bubble:after {
+    position: absolute;
+    top: 14px;
+    border: 6px solid transparent;
+    content: " "
+}
+
+.bubble.left:before, .bubble.left:after {
+    right: 100%
+}
+
+.bubble.left:after {
+    border-right-color: #b2e281;
+    border-right-width: 4px
+}
+
+.bubble.right:before, .bubble.right:after {
+    left: 100%
+}
+
+.bubble.right:after {
+    border-left-color: #b2e281
+}

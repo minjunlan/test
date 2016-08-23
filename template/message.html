@@ -1,0 +1,45 @@
+<div [ngSwitch]="toeChoice"  >
+    <div *ngSwitchWhen="'Eenie'">
+        <p class="message_system"><span class="content" >这是系统消息</span></p>
+    </div>
+    <div *ngSwitchDefault class="message" [ngClass]='{"you":!message.MMIsSend,"me":message.MMIsSend}'>
+        <p *ngIf="message.MMTime" class="message_system"><span class="content">{{message.MMTime|date:'mm:ss'}}</span></p>
+        <img class="avatar" src="https://res.wx.qq.com/zh_CN/htmledition/v2/images/web_wechat_no_contect2e4e03.png" />
+        <div class="content">
+            <h4 *ngIf="message.MMIsChatRoom && !message.MMIsSend"  class="nickname" >聊天房间</h4>
+            <div class="bubble js_message_bubble" *ngIf="message.MsgType != CONF.MSGTYPE_EMOTICON" [ngClass]='{"bubble_default left":!message.MMIsSend,"bubble_primary right":message.MMIsSend}'>
+
+                <!--纯文本消息-->
+                <div class="bubble_cont" *ngIf="message.MsgType == CONF.MSGTYPE_TEXT && message.SubMsgType != CONF.MSGTYPE_LOCATION" >
+                    <div class="plain">
+                        <pre class="js_message_plain" >{{message.MMActualContent}}</pre>
+                        <img *ngIf="message.MMStatus == 1" class="ico_loading" src="./public/images/ico_loading2e4e03.gif" alt="" />
+                        <i class="ico_fail web_wechat_message_fail" ng-click="resendMsg(message)" *ngIf="message.MMStatus == 5" title="重新发送"></i>
+                    </div>
+                </div>
+
+                <!--图片消息-->
+                <div class="bubble_cont" *ngIf="message.MsgType == CONF.MSGTYPE_IMAGE">
+                    <div class="picture" >
+                        <img class="msg-img" ng-style="message.MMImgStyle" (click)="previewImg(message)" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABuAG4DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDtVi5ZthXnscgj6Zp6xgcqxPJHzCs77a0W5V3MP4STVyxuzNEGkOMsVXjr3/lWrNZUZwV2SGIEBvkk756c/rTGhC8BTgjgg9KhvdRhtQMlZ2BPC8be3PXnnFVl1y2aL5o3XthccfTmsJSinZlRpzaukPuLiK32CRn+fJXCk5AGTwOaiS9tZkLpNHwQrFvk/nVe7urW4uLOZXTbASTHIDznGOx9KypYGkieQhFkYbmYT73JAIG0bs/nn+lYOWuh2Rox5U27P/h/0OkEYYDGdp5B9aRoR94gceoxVPQo5UtJPOiaLdKWCnII4H6Vqd+4I/WmtVcwqR5JOKdyi8HGMEZ/HFQPEA3P6itBgMbuMHpnjFV5EIHIJbHakyUZtzE6oDGAxzzXPanqMkD+SYmmlIHyYwg+v6fn14rq3UZI9s9K569tlF7K/q+PXjap/rU3G0YLQXF2wa7lLAdEXhR0/wAPxrpPCVsBqEip8uIT0HutZ7RgVe0S+WxvHkDpzGV5YAdR3P0q29DPU3HaO6geQhrWMfdEpwO2TknJ+gBPTAOSRLaXsNrpMUpYGR2ZkUHAzyuT3rNhuvO0yCB7eHbG4V7hpQrBS5+XnGW2Bu+MY5BAFQSBI9KtkRzIfKOGIwfvNk/nWrqaaHfKHuuMk9H+jIL+7kupWV5iScliD+lUGgljR1jkkXYSCAeB78VJbKPtY6MCFPqOlStOYmnfGS5ZT+OKw0OVzk3dEAW7QOqzMdoycrnFIs16PlPlucZ6HOK0I54ba5Z53VY3iw2fc/8A1qSzaKW7gjRgGU7SARUuCtexSrTXUpR392pDeVhuoKtitGw164E43s7DHKO2fyokgjW2UheROVB9uazLiF4X8xMkBtv0NZuNtUbQqc7tM6vVtTezsI7uHbtdgCHGeCCe3fpVTTtaGpvINscZRcruOSOBnj0yayLi5+06BcQvuATDoQT8vzAEfr/Oo/B91LdalN5+DMqSFpFbJYFl4P07U1JykmdH1eKoO8dddfS3+Z1ToRzzjngHvXKaq13/AGtNFFsVeDvbk52jtj2Fde43NyOAcEEd/WuY1D/kMzj2H/oIrVrU86+hmGyd+Z53fI5C/KPw7j86fDawxsSsa7iOWPU/U1PJIi9WA+pqD7XCGKiRSw6jNWrGbuy86mT7NJc24EMG0FppQw+Zs7gnGTgDCsdpEZ6mrcxjWxtljkWTEZG5SD/E1ZOp3M73cjedFDGxQCzaMO+xVIXLbRkAEjOc4x1xkWoJcaXFubdsQjp0G5jSnLSx6rppUnOzWv6MigwbxNvGcD9BTL25W2iacRh8yHC+h96kixFOwVh8oxnv2pIoYr2RbeZzGkkm1nxnGT1qb2dzzkr6FzwvbXmpB72a6ZG5QBQCQCOxOcdfrXS6t4VsYNIjvYJpP7QB3+dI5Yuff+VJpWkSWWneT8oLHJcZBx2//VUc0Ba3ImnB2OCSTkZ9MNn+fepVRtvU2dNWVkYDN5lvDHnHmPng89K0To1gYSfnjJGWKnlvr+NU/wBzDKpC7Qh2jPPpn+Vakz2pRmLMpkAGdxIXvwOlZSk1KxrTguW5zk6Iun3o27wseFyec+Yoz+FReDBEt9cRiWV1SKQqpcHau9eAQfXJ7Z645qa5Mf8AZ+oFGCxmMjJ6bTIvX8DVfwluttZKmExytE4aMtnBB/qRRT3R3NJ0nfe0vyR2z5DAAHnqR0FcjrCoNZkWRPND7UwWK4+UHPy4Pb1rrj5cQVTtUZ4wMCuU1gZ14/74/wDQK6ZLY8ZdSv8AZo/J8vyLdTz8wi3Hn3ctQ0XmKqyyuwX7oLYA+g7VO1NXnrTsZ3Zn3Vukro5vLVeQMOjl8Ddj5tvPXH/fHpxfQGKw2ghiEJB2kZ6+vai7uIYDH9jt7aOXygHPVyWyOMgYOMdPr71ZkDx+Wk8fzJGqso68KOKJ2toeq01Rkn3fbsVIEeaTf64H8hTCEVEIyCxySfrVncq/MuFw7fL6/T8qyp7kpAFJG4H8qi1zz4xcnZHXaV4hSC2ltpi8jRuVXuduO3fjBqK6vbaZTIrrgng5+ZfYAdc1wcOp3Vhfi5inZJN2Q4PINdssVrqtrbTx2T+VKAZpUjK4wwBHy8YGPvADOTnkVrDDczumbzqezOXN3LfT7RM6oDu+X+fvWrDYareWL3NpO7wQMoIYoApwMkgn7oJ6njHPY4v6JDcwWdzEv7rbd/vJ8xoiHcCu4EFjgnOc4Ge/Nbl1HbXNjPDfarpzq0BLxwNErSS7slwSMA4AX39q29xSs1sU6c3SUo9exwYuWSxnR98vnIqgcAJ8wIzz3x/Lp3n8LJINcQNA0TFB85TaxPl8jntkH/OKjjjjZtrRFl7jHLf/AF81N4eO3xSiKzENu3jJAHysNvrxgcnBJBqMRT5Jxfc3p1VUhKENlzd+3Xz09DvCORyeK5HWW/4n+PQj/wBBrqWiTPV/+/rf41yOtHZrpz0XHfP8NZz6HmLqPY01T3qE3Kf3qVJkP8Qo0IsyOSKWD92ZHiKybyAuOSDjJIBBBJ9sE4979xvjVd+dwhXJzk/cHNST2jk/vAzxHLYfg9fvdev4frTrwGO7XO4EIn3hg/dHaqqU3GJ6MqsGuWPm3+BmqWezSQsPldgc9eawb2dppGkJAUnIAzg1srKMujgAliwH/fX+NYV9gXLon3EJAPrUrcyw/UrSMGJLcZP6123w61NBcvpkuwb8GM7TktkAjjGcjnk8bc/XgrglIm9/8a3vBF4tr4nspnZVXcQxZc4DKQc8j1rqpPUmsk00dtq8un6fqIe7sFeC6Vg8yruZjztKknA45J68fjWVdeJpp4obeLdHsQRhmmcbvoqkKoxjA2/XNbfii3hvNPbMim+tcOURsswOcE9c/KOQCTwenWsVbS40+CNkwklwjxSBoy+FPIBGODxnOODilVhaopN2R0YbFU44aUGm59O39f8AAMkq05dQ2AB8zFsKmeMk9RyRzU+j2v8AZmtwXEt3FJGc+SkYyQpBAGAMAck56ZzVvSLaBYhetKHmlZlDK25JFwuflIyDhjzx6euK0V61sghlCERqEDd1G0ZHPbgflXn5lXqOsuR6K343/wAhYBNwlFLV3/yOxeQkDa2CemRmuI8RuV1l8tySuSOM/LXU2l2ksCNH+8wduVI4+tcd4okA1thnGGHf/YrZvmimcnK4yaZU80rnlju6jOaljk3MQWPHpxVDzM9anVipfB/irDW5pY9VO0cgVzOsNu1CQYI4HBOSOK6PT1W8lkRXyR/Cw7+n0965/U4ZTePc+WDGW2l1O5QQBxuHGfavQrapWOWi7N37GNs3GR8cj29f/wBdc/en98+G2gE5YjiujIJLDHJ71zGoqVvJC2Rz8oz0Fc63Oug9zPunjZcb2YkjtgVveCEEvieyDY272Yk/wgKST7Y659qyBKPu46+tWrK++x3KT26qjxncH2jr9O9dEJJO5UoOV9T126UrbfuzJ5W8MZnOJCpIGVA5QHJHGPwAAOfrgi2C4lTCD5mlzjGPUjp0HtwPSuQ/4TTVZHMr3al2BDfuk5zj256Dnt2rtNBKat4einuCrmZWWRGX5WAJHT6CnWlCaszCFOdJ8yOAk1dZtbtI9NBwpZHZU4Kkj8wME+lXLm3e4mkeOSEJI3y5bB6dPf8ACrlpo6aPd3UKRrjyjhwSdwyvQ1FZIE1JG43FzxXiYrdyi9l99jto1JU5adS7pUU9lHI0+0q+Cqod231/P6dq53xQANVWbP8AreQACCMLjnt61t6ZKTHt81iwJLc5JJ5rG8UxyS3cARHcrGS20ZIG48nH1rWkqseRSldPy8vUwqzVSUpNamNv69eKu27B0kz3YEfrWaCMZq5bNjv27V0tGNzsU8RLvzFAZNuQSI8j9eKnTxpeiTiwEkYHGQUOePX8e3esWa8WNAxVuRxzVSTVNr52E5IAyap1JrYrkizV1DxNLqtz5b2UMCR4Ibl5BgdM+mTmud1mRGlTCgsVFSQ3W+7dtuCV5H5f0xVPVm3XaDHHlj+ZrXlvHmYU7KdkUS2UOF6DPWp9KsJdVu1t4SiOylsu2AAOtUQ+6Zh2Ax+lbvgrc+urGvWSJlBzjnPH64q4Ru7F1J2V0an/AAhN1DAjz31vC56xtkt9Bjr07VrjVLrRtLt7W2spfJYFY7j0OT1B6Hvz71sTwRw2r3jRRhUR5QTl2bbuyGzj19e5qfTY5LGxt4ZZBK7bmbIzlid3X26ZxWGNmqKjpe5zqrLuYN19rgeUvuAKhSp5EZYBsZH0P5HFZsM0qXSqyoPm4k68+9b2qQwW1tNbW6sI0kLvI7Zkkk3Y5P8AdAZsD8e5rBYhuCAR70qlGFSLS7W/z/EcKst2RC7uyzNGUj3dkjA/WrtpfpGpD25klIjHmsV3JtfccFlPXGPTBOQe1fGOmPTpQMZ6c1H1WlppsNzk1Zl77banTngfSbaW4IG2aRA5UiRm/iBJGCF5J4UZ3dKoTpZTWAtfsCW0waMm4RckhVI2598g/dXoM7jzVhFHcA5qzDtAI2g/UVSw8E7r82Qf/9k=" 
+                        />
+                        <i class="arrow"></i>
+                        <p class="loading" *ngIf="message.MMStatus == 1 || message.MMFileStatus == CONF.MM_SEND_FILE_STATUS_FAIL">
+                            <img src="https://res.wx.qq.com/zh_CN/htmledition/v2/images/icon/ico_loading2e4e03.gif" alt="" />
+                        </p>
+                    </div>
+                </div>
+
+                <!--语音消息-->
+                <div class="bubble_cont" *ngIf="message.MsgType == CONF.MSGTYPE_VOICE">
+                    <div class="voice" ng-style="{'width':40 + 7*message.VoiceLength/1000}" ng-click="playVoice(message)">
+                        <i [ngClass]="{'web_wechat_voice_green':message.MMIsSend,'web_wechat_voice_gray':!message.MMIsSend, 'web_wechat_voice_playing': message.MMPlaying&&message.MMIsSend,'web_wechat_voice_gray_playing': message.MMPlaying&&!message.MMIsSend}"></i>
+                        <span class="duration">语音消息<i class="web_wechat_noread" ></i></span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
